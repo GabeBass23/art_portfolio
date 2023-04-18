@@ -5,7 +5,8 @@ for(i = 0; i < photoList.length; ++i){
     let TL = new Image();
     let TR = new Image();
     let BL = new Image();
-    let BR = new Image(); 
+    let BR = new Image();
+
     left.src = "images/frames/Left.jpg";
     right.src = "images/frames/Right.jpg";
     top.src = "images/frames/Top.jpg";
@@ -22,6 +23,7 @@ for(i = 0; i < photoList.length; ++i){
     TR.classList.add("TR");
     BL.classList.add("BL");
     BR.classList.add("BR");
+
     photoList[i].appendChild(left);
     photoList[i].appendChild(right);
     photoList[i].appendChild(top);
@@ -30,20 +32,19 @@ for(i = 0; i < photoList.length; ++i){
     photoList[i].appendChild(TR);
     photoList[i].appendChild(BL);
     photoList[i].appendChild(BR);
-
 }
 
-window.addEventListener("resize", function(){
-    var width, height;
-    for(j = 0; j < photoList.length; ++j){
-        width = photoList[j].children[0].width;
-        height = photoList[j].children[0].height;
+function setHeight() {
+    let photoL = document.querySelectorAll(".photo");
+    for(j = 0; j < photoL.length; ++j){
+        let height = photoL[j].children[0].clientHeight;
 
-        console.log(height);
-        photoList[j].children[1].style.height = height;
-        photoList[j].children[2].style.height = height;
-        photoList[j].children[3].style.width = width;
-        photoList[j].children[4].style.width = width;
+        if(!(height == 0)){
+            photoL[j].children[1].style.height = "" + height + ".5px";
+            photoL[j].children[2].style.height = "" + height + ".5px";
+        }
     }
+}
 
-})
+window.addEventListener("resize", setHeight);
+photoList[0].children[0].addEventListener("load", setHeight);
