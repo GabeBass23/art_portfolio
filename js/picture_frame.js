@@ -23,6 +23,15 @@ for(i = 0; i < photoList.length; ++i){
     TR.classList.add("TR");
     BL.classList.add("BL");
     BR.classList.add("BR");
+    
+    left.alt = "";
+    right.alt = "";
+    top.alt = "";
+    bottom.alt = "";
+    TL.alt = "";
+    TR.alt = "";
+    BL.alt = "";
+    BR.alt = "";
 
     photoList[i].appendChild(left);
     photoList[i].appendChild(right);
@@ -47,4 +56,6 @@ function setHeight() {
 }
 
 window.addEventListener("resize", setHeight);
-photoList[0].children[0].addEventListener("load", setHeight);
+photoList.forEach(element => {
+    element.children[0].addEventListener("load", setHeight);
+});
