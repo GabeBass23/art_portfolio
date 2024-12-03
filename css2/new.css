@@ -1,0 +1,9 @@
+.background-photo-title {
+    background-image: url('../images/Product_image.jpg'); /* Path to your image */
+    background-size: cover; /* Ensures the image covers the entire area */
+    /* background-position: center; Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    width: 100%; /* Optional: Ensures it spans full width */
+    height: auto; /* Allows height to scale with the image's aspect ratio */
+    aspect-ratio: 1 / 1; /* Ensures a consistent ratio (adjust as necessary) */
+}
